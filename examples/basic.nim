@@ -1,14 +1,3 @@
-# nimsimd
-
-`nimble install nimsimd`
-
-This repo provides pleasant Nim bindings for various SIMD instructions.
-
-Each SIMD instruction set is in its own file for importing.
-
-## Basic Example
-
-```nim
 import nimsimd/sse2
 
 # SIMD floating point multiplication
@@ -19,8 +8,3 @@ let
 
 # Cast the vector to echo as separate float32 values
 echo cast[array[4, float32]](c)
-```
-
-## Testing
-
-`nimble test`
