@@ -21,6 +21,21 @@ let
 echo cast[array[4, float32]](c)
 ```
 
+## Status
+
+This repo is under development. Check back here for the latest status.
+
+Instruction Set | Bindings
+--- | ---:
+SSE | ✅
+SSE2 | ✅
+SSE3 | ⛔
+SSSE3 | ⛔
+SSE4.1 | ⛔
+SSE4.2 | ⛔
+AVX | ⛔
+AVX2 | ⛔
+
 ## Uses of nimsimd
 
 * [Noisy](https://github.com/guzba/noisy) uses SIMD to accelerate generating coherent noise.
