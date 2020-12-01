@@ -21,6 +21,10 @@ let
 echo cast[array[4, float32]](c)
 ```
 
+## Uses of nimsimd
+
+* [Noisy](https://github.com/guzba/noisy) uses SIMD to accelerate generating coherent noise.
+
 ## Testing
 
 `nimble test`
