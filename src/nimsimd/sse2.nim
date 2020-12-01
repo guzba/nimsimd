@@ -73,6 +73,9 @@ func mm_and_si128*(a, b: M128i): M128i
 func m128*(a: float32): M128 {.inline.} =
   mm_set1_ps(a)
 
+func m128i*(a: int32): M128i {.inline.} =
+  mm_set1_epi32(a)
+
 func `and`*(a, b: M128): M128 {.inline.} =
   mm_and_ps(a, b)
 

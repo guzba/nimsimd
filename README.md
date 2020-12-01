@@ -6,7 +6,7 @@ This repo provides pleasant Nim bindings for various SIMD instructions.
 
 Each SIMD instruction set is in its own file for importing.
 
-## Basic Example
+In addition to direct bindings to the SIMD instructions, there are also operator overloads to make for much more readable code (that is also easier to write!). See this basic example:
 
 ```nim
 import nimsimd/sse2
