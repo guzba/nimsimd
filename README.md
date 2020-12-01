@@ -29,7 +29,7 @@ Instruction Set | Bindings
 --- | ---:
 SSE | ✅
 SSE2 | ✅
-SSE3 | ⛔
+SSE3 | ✅
 SSSE3 | ⛔
 SSE4.1 | ⛔
 SSE4.2 | ⛔

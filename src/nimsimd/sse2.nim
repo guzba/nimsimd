@@ -7,10 +7,10 @@ type
 
 # "xmmintrin.h"
 
-func mm_add_ps*(a: M128, b: M128): M128
+func mm_add_ps*(a, b: M128): M128
   {.importc: "_mm_add_ps", header: "xmmintrin.h".}
 
-func mm_add_ss*(a: M128, b: M128): M128
+func mm_add_ss*(a, b: M128): M128
   {.importc: "_mm_add_ss", header: "xmmintrin.h".}
 
 func mm_and_ps*(a, b: M128): M128
