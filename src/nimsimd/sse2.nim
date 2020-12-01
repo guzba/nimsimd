@@ -88,22 +88,22 @@ func mm_cmpunord_ps*(a, b: M128): M128
 func mm_cmpunord_ss*(a, b: M128): M128
   {.importc: "_mm_cmpunord_ss", header: "xmmintrin.h".}
 
-func mm_comieq_ss*(a, b: M128): M128
+func mm_comieq_ss*(a, b: M128): int32
   {.importc: "_mm_comieq_ss", header: "xmmintrin.h".}
 
-func mm_comige_ss*(a, b: M128): M128
+func mm_comige_ss*(a, b: M128): int32
   {.importc: "_mm_comige_ss", header: "xmmintrin.h".}
 
-func mm_comigt_ss*(a, b: M128): M128
+func mm_comigt_ss*(a, b: M128): int32
   {.importc: "_mm_comigt_ss", header: "xmmintrin.h".}
 
-func mm_comile_ss*(a, b: M128): M128
+func mm_comile_ss*(a, b: M128): int32
   {.importc: "_mm_comile_ss", header: "xmmintrin.h".}
 
-func mm_comilt_ss*(a, b: M128): M128
+func mm_comilt_ss*(a, b: M128): int32
   {.importc: "_mm_comilt_ss", header: "xmmintrin.h".}
 
-func mm_comineq_ss*(a, b: M128): M128
+func mm_comineq_ss*(a, b: M128): int32
   {.importc: "_mm_comineq_ss", header: "xmmintrin.h".}
 
 func mm_cvt_si2ss*(a: M128, b: int32): M128
@@ -235,31 +235,31 @@ func mm_sqrt_ps*(a: M128): M128
 func mm_sqrt_ss*(a: M128): M128
   {.importc: "_mm_sqrt_ss", header: "xmmintrin.h".}
 
-func mm_store_ps*(p: pointer, a: M128): M128
+func mm_store_ps*(p: pointer, a: M128)
   {.importc: "_mm_store_ps", header: "xmmintrin.h".}
 
-func mm_store_ps1*(p: pointer, a: M128): M128
+func mm_store_ps1*(p: pointer, a: M128)
   {.importc: "_mm_store_ps1", header: "xmmintrin.h".}
 
-func mm_store_ss*(p: pointer, a: M128): M128
+func mm_store_ss*(p: pointer, a: M128)
   {.importc: "_mm_store_ss", header: "xmmintrin.h".}
 
-func mm_store1_ps*(p: pointer, a: M128): M128
+func mm_store1_ps*(p: pointer, a: M128)
   {.importc: "_mm_store1_ps", header: "xmmintrin.h".}
 
-func mm_storer_ps*(p: pointer, a: M128): M128
+func mm_storer_ps*(p: pointer, a: M128)
   {.importc: "_mm_storer_ps", header: "xmmintrin.h".}
 
-func mm_storeu_ps*(p: pointer, a: M128): M128
+func mm_storeu_ps*(p: pointer, a: M128)
   {.importc: "_mm_storeu_ps", header: "xmmintrin.h".}
 
-func mm_storeu_si16*(p: pointer, a: M128): M128
+func mm_storeu_si16*(p: pointer, a: M128)
   {.importc: "_mm_storeu_si16", header: "xmmintrin.h".}
 
-func mm_storeu_si64*(p: pointer, a: M128): M128
+func mm_storeu_si64*(p: pointer, a: M128)
   {.importc: "_mm_storeu_si64", header: "xmmintrin.h".}
 
-func mm_stream_ps*(p: pointer, a: M128): M128
+func mm_stream_ps*(p: pointer, a: M128)
   {.importc: "_mm_stream_ps", header: "xmmintrin.h".}
 
 func mm_sub_ps*(a, b: M128): M128
@@ -268,22 +268,22 @@ func mm_sub_ps*(a, b: M128): M128
 func mm_sub_ss*(a, b: M128): M128
   {.importc: "_mm_sub_ss", header: "xmmintrin.h".}
 
-func mm_ucomieq_ss*(a, b: M128): M128
+func mm_ucomieq_ss*(a, b: M128): int32
   {.importc: "_mm_ucomieq_ss", header: "xmmintrin.h".}
 
-func mm_ucomige_ss*(a, b: M128): M128
+func mm_ucomige_ss*(a, b: M128): int32
   {.importc: "_mm_ucomige_ss", header: "xmmintrin.h".}
 
-func mm_ucomigt_ss*(a, b: M128): M128
+func mm_ucomigt_ss*(a, b: M128): int32
   {.importc: "_mm_ucomigt_ss", header: "xmmintrin.h".}
 
-func mm_ucomile_ss*(a, b: M128): M128
+func mm_ucomile_ss*(a, b: M128): int32
   {.importc: "_mm_ucomile_ss", header: "xmmintrin.h".}
 
-func mm_ucomilt_ss*(a, b: M128): M128
+func mm_ucomilt_ss*(a, b: M128): int32
   {.importc: "_mm_ucomilt_ss", header: "xmmintrin.h".}
 
-func mm_ucomineq_ss*(a, b: M128): M128
+func mm_ucomineq_ss*(a, b: M128): int32
   {.importc: "_mm_ucomineq_ss", header: "xmmintrin.h".}
 
 func mm_undefined_ps*(): M128
