@@ -39,6 +39,7 @@ AVX2 | ⛔
 ## Uses of nimsimd
 
 * [Noisy](https://github.com/guzba/noisy) uses SIMD to accelerate generating coherent noise.
+* [Pixie](https://github.com/treeform/pixie) uses SIMD for faster 2D drawing.
 
 ## Testing
 
