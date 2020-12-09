@@ -5,6 +5,9 @@ type
   M128i* {.importc: "__m128i", header: "emmintrin.h".} = object
   M128d* {.importc: "__m128d", header: "emmintrin.h".} = object
 
+# template MM_SHUFFLE*(z, y, x, w: int | uint): uint32 =
+#   ((w shl 6) or (x shl 4) or (y shl 2) or z).uint32
+
 # "xmmintrin.h"
 
 func mm_add_ps*(a, b: M128): M128
@@ -609,13 +612,13 @@ func mm_loadl_pd*(a: M128d, p: pointer): M128i
 func mm_loadr_pd*(p: pointer): M128d
   {.importc: "_mm_loadr_pd", header: "emmintrin.h".}
 
-func mm_loadu_pd*(a: M128d, p: pointer): M128d
+func mm_loadu_pd*(p: pointer): M128d
   {.importc: "_mm_loadu_pd", header: "emmintrin.h".}
 
 func mm_loadu_si128*(p: pointer): M128i
   {.importc: "_mm_loadu_si128", header: "emmintrin.h".}
 
-func mm_loadu_si32*(a: M128d, p: pointer): M128i
+func mm_loadu_si32*(p: pointer): M128i
   {.importc: "_mm_loadu_si32", header: "emmintrin.h".}
 
 func mm_madd_epi16*(a, b: M128i): M128i
@@ -971,6 +974,9 @@ func m128*(): M128 {.inline.} =
 
 func m128*(a: float32): M128 {.inline.} =
   mm_set1_ps(a)
+
+func m128*(a, b, c, d: float32): M128 {.inline.} =
+  mm_set_ps(a, b, c, d)
 
 func m128d*(): M128d {.inline.} =
   mm_setzero_pd()
