@@ -5,8 +5,8 @@ type
   M128i* {.importc: "__m128i", header: "emmintrin.h".} = object
   M128d* {.importc: "__m128d", header: "emmintrin.h".} = object
 
-# template MM_SHUFFLE*(z, y, x, w: int | uint): uint32 =
-#   ((w shl 6) or (x shl 4) or (y shl 2) or z).uint32
+template MM_SHUFFLE*(z, y, x, w: int | uint): int32 =
+  ((z shl 6) or (y shl 4) or (x shl 2) or w).int32
 
 # "xmmintrin.h"
 
@@ -974,9 +974,6 @@ func m128*(): M128 {.inline.} =
 
 func m128*(a: float32): M128 {.inline.} =
   mm_set1_ps(a)
-
-func m128*(a, b, c, d: float32): M128 {.inline.} =
-  mm_set_ps(a, b, c, d)
 
 func m128d*(): M128d {.inline.} =
   mm_setzero_pd()
