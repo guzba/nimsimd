@@ -731,7 +731,7 @@ func mm_set1_epi32*(a: int32): M128i
 func mm_set1_epi64x*(a: int64): M128i
   {.importc: "_mm_set1_epi64x", header: "emmintrin.h".}
 
-func mm_set1_epi8*(a: int8): M128i
+func mm_set1_epi8*(a: uint8): M128i
   {.importc: "_mm_set1_epi8", header: "emmintrin.h".}
 
 func mm_set1_pd*(a: float64): M128d
