@@ -1,8 +1,8 @@
 # nimsimd
 
-`nimble install nimsimd`
-
 ![Github Actions](https://github.com/guzba/nimsimd/workflows/Github%20Actions/badge.svg)
+
+`nimble install nimsimd`
 
 This repo provides pleasant Nim bindings for various SIMD instructions.
 
