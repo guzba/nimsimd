@@ -232,7 +232,7 @@ func mm_setr_ps*(a, b, c, d: float32): M128
 func mm_setzero_ps*(): M128
   {.importc: "_mm_setzero_ps", header: "xmmintrin.h".}
 
-func mm_shuffle_ps*(a, b: M128, imm8: uint32): M128
+func mm_shuffle_ps*(a, b: M128, imm8: int32 | uint32): M128
   {.importc: "_mm_shuffle_ps", header: "xmmintrin.h".}
 
 func mm_sqrt_ps*(a: M128): M128
@@ -757,16 +757,16 @@ func mm_setzero_pd*(): M128d
 func mm_setzero_si128*(): M128i
   {.importc: "_mm_setzero_si128", header: "emmintrin.h".}
 
-func mm_shuffle_epi32*(a: M128i, imm8: int32): M128i
+func mm_shuffle_epi32*(a: M128i, imm8: int32 | int32): M128i
   {.importc: "_mm_shuffle_epi32", header: "emmintrin.h".}
 
-func mm_shuffle_pd*(a, b: M128d, imm8: int32): M128d
+func mm_shuffle_pd*(a, b: M128d, imm8: int32 | int32): M128d
   {.importc: "_mm_shuffle_pd", header: "emmintrin.h".}
 
-func mm_shufflehi_epi16*(a: M128i, imm8: int32): M128i
+func mm_shufflehi_epi16*(a: M128i, imm8: int32 | int32): M128i
   {.importc: "_mm_shufflehi_epi16", header: "emmintrin.h".}
 
-func mm_shufflelo_epi16*(a: M128i, imm8: int32): M128i
+func mm_shufflelo_epi16*(a: M128i, imm8: int32 | int32): M128i
   {.importc: "_mm_shufflelo_epi16", header: "emmintrin.h".}
 
 func mm_sll_epi16*(a, count: M128i): M128i
