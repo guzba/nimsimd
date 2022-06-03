@@ -86,3 +86,5 @@ func vst1q_u8_x4*(p: pointer, a: uint8x16x4)
 func vst1q_u16_x4*(p: pointer, a: uint16x8x4)
 func vst1q_u32_x4*(p: pointer, a: uint32x4x4)
 func vst1q_u64_x4*(p: pointer, a: uint64x2x4)
+
+{.pop.}
