@@ -1,4 +1,4 @@
-import nimsimd/sse2
+import nimsimd/ssse3
 
 let
   a = m128(1.0)
