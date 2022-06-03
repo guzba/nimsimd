@@ -27,6 +27,8 @@ echo cast[array[4, float32]](c)
 
 This repo is under development. Check back here for the latest status.
 
+## x86
+
 Instruction Set | Bindings
 --- | ---:
 SSE | ✅
@@ -37,6 +39,10 @@ SSE4.1 | ⛔
 SSE4.2 | ⛔
 AVX | ⛔
 AVX2 | ⛔
+
+## ARM
+
+NEON bindings are started but experimental. Much to learn here about versioning and compilers.
 
 ## Uses of nimsimd
 
