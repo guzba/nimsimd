@@ -3,6 +3,9 @@
 import sse3
 export sse3
 
+when defined(gcc):
+  {.passC: "-mssse3".}
+
 {.push header: "tmmintrin.h".}
 
 func mm_abs_epi16*(a: M128i): M128i {.importc: "_mm_abs_epi16".}
