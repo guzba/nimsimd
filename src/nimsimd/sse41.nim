@@ -6,6 +6,21 @@ export ssse3
 when defined(gcc):
   {.passC: "-msse4.1".}
 
+const
+  MM_FROUND_TO_NEAREST_INT*: int32 = 0x00
+  MM_FROUND_TO_NEG_INF*: int32 = 0x01
+  MM_FROUND_TO_POS_INF*: int32 = 0x02
+  MM_FROUND_TO_ZERO*: int32 = 0x03
+  MM_FROUND_CUR_DIRECTION*: int32 = 0x04
+  MM_FROUND_RAISE_EXC*: int32 = 0x00
+  MM_FROUND_NO_EXC*: int32 = 0x08
+  MM_FROUND_NINT*: int32 = 0x00
+  MM_FROUND_FLOOR*: int32 = MM_FROUND_RAISE_EXC or MM_FROUND_TO_NEG_INF
+  MM_FROUND_CEIL*: int32 = MM_FROUND_RAISE_EXC or MM_FROUND_TO_POS_INF
+  MM_FROUND_TRUNC*: int32 = MM_FROUND_RAISE_EXC or MM_FROUND_TO_ZERO
+  MM_FROUND_RINT*: int32 = MM_FROUND_RAISE_EXC or MM_FROUND_CUR_DIRECTION
+  MM_FROUND_NEARBYINT*: int32 = MM_FROUND_NO_EXC or MM_FROUND_CUR_DIRECTION
+
 {.push header: "smmintrin.h".}
 
 func mm_blend_epi16*(a, b: M128i, imm8: int32 | uint32): M128i {.importc: "_mm_blend_epi16".}
