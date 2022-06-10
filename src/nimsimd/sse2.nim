@@ -8,6 +8,20 @@ type
 template MM_SHUFFLE*(z, y, x, w: int | uint): int32 =
   ((z shl 6) or (y shl 4) or (x shl 2) or w).int32
 
+{.push header: "immintrin.h".}
+
+const
+  MM_HINT_T0*: int32 = 3
+  MM_HINT_T1*: int32 = 2
+  MM_HINT_T2*: int32 = 1
+  MM_HINT_NTA*: int32 = 0
+  MM_HINT_ET0*: int32 = 7
+  MM_HINT_ET1*: int32 = 6
+
+func mm_prefetch*(p: pointer, i: int32) {.importc: "_mm_prefetch".}
+
+{.pop.}
+
 {.push header: "xmmintrin.h".}
 
 func mm_add_ps*(a, b: M128): M128 {.importc: "_mm_add_ps".}
