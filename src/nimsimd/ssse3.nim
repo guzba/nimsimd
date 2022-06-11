@@ -4,7 +4,7 @@ import sse3
 export sse3
 
 when defined(gcc):
-  {.passC: "-mssse3".}
+  {.localPassc: "-mssse3".}
 
 {.push header: "tmmintrin.h".}
 

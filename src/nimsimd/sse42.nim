@@ -4,7 +4,7 @@ import sse41
 export sse41
 
 when defined(gcc):
-  {.passC: "-msse4.2".}
+  {.localPassc: "-msse4.2".}
 
 const
   SIDD_UBYTE_OPS*: int32 = 0b0000_0000

@@ -4,7 +4,7 @@ import ssse3
 export ssse3
 
 when defined(gcc):
-  {.passC: "-msse4.1".}
+  {.localPassc: "-msse4.1".}
 
 const
   MM_FROUND_TO_NEAREST_INT*: int32 = 0x00
