@@ -8,21 +8,6 @@ This repo provides pleasant Nim bindings for various SIMD instructions.
 
 Each SIMD instruction set is in its own file for importing.
 
-In addition to direct bindings to the SIMD instructions, there are also operator overloads to make for much more readable code (that is also easier to write!). See this basic example:
-
-```nim
-import nimsimd/sse2
-
-# SIMD floating point multiplication
-let
-  a = m128(1.0) # Vector of 4 float32 each with value 1.0
-  b = m128(2.0) # Vector of 4 float32 each with value 2.0
-  c = a * b # SIMD vector multiplication operator
-
-# Cast the vector to echo as separate float32 values
-echo cast[array[4, float32]](c)
-```
-
 ## Status
 
 This repo is under development. Check back here for the latest status.
@@ -40,6 +25,30 @@ SSE4.2 | ✅
 AVX | ⛔
 AVX2 | ⛔
 PCLMULQDQ | ✅
+
+### Compiler flags
+
+Some instruction sets require additional compiler flags to compile. I suggest
+putting any code that uses these instructions into its own .nim file and adding a `localPassc` pragma to the top of that file as needed, such as:
+
+```nim
+import nimsimd/sse42
+
+when defined(gcc) or defined(clang):
+  {.localPassc: "-msse4.2".}
+
+...
+```
+
+### Runtime check
+
+You can also check if instruction sets are available at runtime:
+
+```nim
+import nimsimd/runtimecheck
+
+echo checkInstructionSets({SSE41, PCLMULQDQ})
+```
 
 ## ARM
 
