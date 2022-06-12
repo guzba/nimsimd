@@ -3,7 +3,7 @@
 import sse41
 export sse41
 
-when defined(gcc):
+when defined(gcc) or defined(clang):
   {.localPassc: "-msse4.2".}
 
 const

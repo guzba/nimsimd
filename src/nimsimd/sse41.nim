@@ -3,7 +3,7 @@
 import ssse3
 export ssse3
 
-when defined(gcc):
+when defined(gcc) or defined(clang):
   {.localPassc: "-msse4.1".}
 
 const

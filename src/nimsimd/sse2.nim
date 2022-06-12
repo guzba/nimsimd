@@ -366,7 +366,7 @@ func mm_cvtsd_f64*(a: M128d): float64 {.importc: "_mm_cvtsd_f64".}
 
 func mm_cvtsd_si32*(a: M128d): int32 {.importc: "_mm_cvtsd_si32".}
 
-func mm_cvtsd_si64*(a: M128d): int64 {.importc: "mm_cvtsd_si64".}
+func mm_cvtsd_si64*(a: M128d): int64 {.importc: "_mm_cvtsd_si64".}
 
 func mm_cvtsd_si64x*(a: M128d): int64 {.importc: "_mm_cvtsd_si64x".}
 
@@ -378,17 +378,17 @@ func mm_cvtsi128_si64*(a: M128i): int64 {.importc: "_mm_cvtsi128_si64".}
 
 func mm_cvtsi128_si64x*(a: M128i): int64 {.importc: "_mm_cvtsi128_si64x".}
 
-func mm_cvtsi32_sd*(a: M128d, b: int32): M128d {.importc: "mm_cvtsi32_sd".}
+func mm_cvtsi32_sd*(a: M128d, b: int32): M128d {.importc: "_mm_cvtsi32_sd".}
 
-func mm_cvtsi32_si128*(a: int32): M128i {.importc: "mm_cvtsi32_si128".}
+func mm_cvtsi32_si128*(a: int32 | uint32): M128i {.importc: "_mm_cvtsi32_si128".}
 
 func mm_cvtsi64_sd*(a: M128d, b: int64): M128d {.importc: "_mm_cvtsi64_sd".}
 
-func mm_cvtsi64_si128*(a: int64): M128i {.importc: "_mm_cvtsi64_si128".}
+func mm_cvtsi64_si128*(a: int64 | uint64): M128i {.importc: "_mm_cvtsi64_si128".}
 
 func mm_cvtsi64x_sd*(a: M128d, b: int64): M128d {.importc: "_mm_cvtsi64x_sd".}
 
-func mm_cvtsi64x_si128*(a: int64): M128i {.importc: "_mm_cvtsi64x_si128".}
+func mm_cvtsi64x_si128*(a: int64 | uint64): M128i {.importc: "_mm_cvtsi64x_si128".}
 
 func mm_cvtss_sd*(a, b: M128): M128d {.importc: "_mm_cvtss_sd".}
 

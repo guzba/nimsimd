@@ -39,6 +39,7 @@ SSE4.1 | ✅
 SSE4.2 | ✅
 AVX | ⛔
 AVX2 | ⛔
+PCLMULQDQ | ✅
 
 ## ARM
 

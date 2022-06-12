@@ -3,7 +3,7 @@
 import sse3
 export sse3
 
-when defined(gcc):
+when defined(gcc) or defined(clang):
   {.localPassc: "-mssse3".}
 
 {.push header: "tmmintrin.h".}
