@@ -3,9 +3,6 @@
 import sse41
 export sse41
 
-when defined(gcc) or defined(clang):
-  {.localPassc: "-msse4.2".}
-
 const
   SIDD_UBYTE_OPS*: int32 = 0b0000_0000
   SIDD_UWORD_OPS*: int32 = 0b0000_0001

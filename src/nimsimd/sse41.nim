@@ -3,9 +3,6 @@
 import ssse3
 export ssse3
 
-when defined(gcc) or defined(clang):
-  {.localPassc: "-msse4.1".}
-
 const
   MM_FROUND_TO_NEAREST_INT*: int32 = 0x00
   MM_FROUND_TO_NEG_INF*: int32 = 0x01
