@@ -488,12 +488,11 @@ func mm_sad_epu8*(a, b: M128i): M128i {.importc: "_mm_sad_epu8".}
 
 func mm_set_epi16*(a, b, c, d, e, f, g, h: int16): M128i {.importc: "_mm_set_epi16".}
 
-func mm_set_epi32*(a, b, c, d: int32): M128i {.importc: "_mm_set_epi32".}
+func mm_set_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_set_epi32".}
 
 func mm_set_epi64x*(a, b: int64): M128i {.importc: "_mm_set_epi64x".}
 
-func mm_set_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8
-): M128i {.importc: "_mm_set_epi8".}
+func mm_set_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8): M128i {.importc: "_mm_set_epi8".}
 
 func mm_set_pd*(a, b: float64): M128d {.importc: "_mm_set_pd".}
 
@@ -501,22 +500,21 @@ func mm_set_pd1*(a: float64): M128d {.importc: "_mm_set_pd1".}
 
 func mm_set_sd*(a: float64): M128d {.importc: "_mm_set_sd".}
 
-func mm_set1_epi16*(a: int16): M128i {.importc: "_mm_set1_epi16".}
+func mm_set1_epi16*(a: int16 | uint16): M128i {.importc: "_mm_set1_epi16".}
 
-func mm_set1_epi32*(a: int32): M128i {.importc: "_mm_set1_epi32".}
+func mm_set1_epi32*(a: int32 | uint32): M128i {.importc: "_mm_set1_epi32".}
 
-func mm_set1_epi64x*(a: int64): M128i {.importc: "_mm_set1_epi64x".}
+func mm_set1_epi64x*(a: int64 | uint64): M128i {.importc: "_mm_set1_epi64x".}
 
-func mm_set1_epi8*(a: int8): M128i {.importc: "_mm_set1_epi8".}
+func mm_set1_epi8*(a: int8 | uint8): M128i {.importc: "_mm_set1_epi8".}
 
 func mm_set1_pd*(a: float64): M128d {.importc: "_mm_set1_pd".}
 
 func mm_setr_epi16*(a, b, c, d, e, f, g, h: int16): M128i {.importc: "_mm_setr_epi16".}
 
-func mm_setr_epi32*(a, b, c, d: int32): M128i {.importc: "_mm_setr_epi32".}
+func mm_setr_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_setr_epi32".}
 
-func mm_setr_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8
-): M128i {.importc: "_mm_setr_epi8".}
+func mm_setr_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8): M128i {.importc: "_mm_setr_epi8".}
 
 func mm_setr_pd*(a, b: float64): M128d {.importc: "_mm_setr_pd".}
 
@@ -600,9 +598,9 @@ func mm_stream_pd*(p: pointer, a: M128d) {.importc: "_mm_stream_pd".}
 
 func mm_stream_si128*(p: pointer, a: M128i) {.importc: "_mm_stream_si128".}
 
-func mm_stream_si32*(p: pointer, a: int32) {.importc: "_mm_stream_si32".}
+func mm_stream_si32*(p: pointer, a: int32 | uint32) {.importc: "_mm_stream_si32".}
 
-func mm_stream_si64*(p: pointer, a: int64) {.importc: "_mm_stream_si64".}
+func mm_stream_si64*(p: pointer, a: int64 | uint64) {.importc: "_mm_stream_si64".}
 
 func mm_sub_epi16*(a, b: M128i): M128i {.importc: "_mm_sub_epi16".}
 
