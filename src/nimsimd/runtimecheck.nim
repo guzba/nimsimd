@@ -12,7 +12,7 @@ when defined(amd64):
     InstructionSetCheckInfo = object
       leaf, register, bit: int
 
-  const asdf = [
+  const checkInfos = [
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 0), # SSE3
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 9), # SSSE3
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 19), # SSE41
@@ -43,7 +43,7 @@ when defined(amd64):
       leaf7 = cpuid(7, 0)
 
     for instructionSet in instructionSets:
-      let checkInfo = asdf[instructionSet.ord]
+      let checkInfo = checkInfos[instructionSet.ord]
       if checkInfo.leaf == 1:
         if (leaf1[checkInfo.register] and (1 shl checkInfo.bit)) == 0:
           return false
