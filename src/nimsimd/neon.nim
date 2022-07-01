@@ -7,6 +7,10 @@ type
   uint16x8* {.importc: "uint16x8_t".} = object
   uint32x4* {.importc: "uint32x4_t".} = object
   uint64x2* {.importc: "uint64x2_t".} = object
+  uint8x8* {.importc: "uint8x8_t".} = object
+  uint16x4* {.importc: "uint16x4_t".} = object
+  uint32x2* {.importc: "uint32x2_t".} = object
+  uint64x1* {.importc: "uint64x1_t".} = object
 
   uint8x16x4* {.importc: "uint8x16x4_t".} = object
     val*: array[4, uint8x16]
@@ -61,15 +65,15 @@ func vorrq_u16*(a, b: uint16x8): uint16x8
 func vorrq_u32*(a, b: uint32x4): uint32x4
 func vorrq_u64*(a, b: uint64x2): uint64x2
 
-func vget_low_u8*(a: uint8x16): uint8
-func vget_low_u16*(a: uint16x8): uint16
-func vget_low_u32*(a: uint32x4): uint32
-func vget_low_u64*(a: uint64x2): uint64
+func vget_low_u8*(a: uint8x16): uint8x8
+func vget_low_u16*(a: uint16x8): uint16x4
+func vget_low_u32*(a: uint32x4): uint32x2
+func vget_low_u64*(a: uint64x2): uint64x1
 
-func vget_high_u8*(a: uint8x16): uint8
-func vget_high_u16*(a: uint16x8): uint16
-func vget_high_u32*(a: uint32x4): uint32
-func vget_high_u64*(a: uint64x2): uint64
+func vget_high_u8*(a: uint8x16): uint8x8
+func vget_high_u16*(a: uint16x8): uint16x4
+func vget_high_u32*(a: uint32x4): uint32x2
+func vget_high_u64*(a: uint64x2): uint64x1
 
 
 func vld4q_u8*(p: pointer): uint8x16x4
