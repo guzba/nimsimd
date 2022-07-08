@@ -75,7 +75,6 @@ func vget_high_u16*(a: uint16x8): uint16x4
 func vget_high_u32*(a: uint32x4): uint32x2
 func vget_high_u64*(a: uint64x2): uint64x1
 
-
 func vld4q_u8*(p: pointer): uint8x16x4
 func vld4q_u16*(p: pointer): uint16x8x4
 func vld4q_u32*(p: pointer): uint32x4x4
@@ -90,5 +89,15 @@ func vst1q_u8_x4*(p: pointer, a: uint8x16x4)
 func vst1q_u16_x4*(p: pointer, a: uint16x8x4)
 func vst1q_u32_x4*(p: pointer, a: uint32x4x4)
 func vst1q_u64_x4*(p: pointer, a: uint64x2x4)
+
+func vzip1q_u8*(a, b: uint8x16): uint8x16
+func vzip1q_u16*(a, b: uint16x8): uint16x8
+func vzip1q_u32*(a, b: uint32x4): uint32x4
+func vzip1q_u64*(a, b: uint64x2): uint64x2
+
+func vgetq_lane_u8*(a: uint8x16, lane: int): uint8
+func vgetq_lane_u16*(a: uint16x8, lane: int): uint16
+func vgetq_lane_u32*(a: uint32x4, lane: int): uint32
+func vgetq_lane_u64*(a: uint64x2, lane: int): uint64
 
 {.pop.}
