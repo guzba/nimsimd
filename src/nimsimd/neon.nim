@@ -21,6 +21,15 @@ type
   uint64x2x4* {.importc: "uint64x2x4_t".} = object
     val*: array[4, uint64x2]
 
+  uint8x8x4* {.importc: "uint8x8x4_t".} = object
+    val*: array[4, uint8x8]
+  uint16x4x4* {.importc: "uint16x4x4_t".} = object
+    val*: array[4, uint16x4]
+  uint32x2x4* {.importc: "uint32x2x4_t".} = object
+    val*: array[4, uint32x2]
+  uint64x1x4* {.importc: "uint64x1x4_t".} = object
+    val*: array[4, uint64x1]
+
 func vmovq_n_u8*(a: uint8): uint8x16
 func vmovq_n_u16*(a: uint16): uint16x8
 func vmovq_n_u32*(a: uint32): uint32x4
@@ -75,10 +84,25 @@ func vget_high_u16*(a: uint16x8): uint16x4
 func vget_high_u32*(a: uint32x4): uint32x2
 func vget_high_u64*(a: uint64x2): uint64x1
 
+func vld4_u8*(p: pointer): uint8x8x4
+func vld4_u16*(p: pointer): uint16x4x4
+func vld4_u32*(p: pointer): uint32x2x4
+func vld4_u64*(p: pointer): uint64x1x4
+
 func vld4q_u8*(p: pointer): uint8x16x4
 func vld4q_u16*(p: pointer): uint16x8x4
 func vld4q_u32*(p: pointer): uint32x4x4
 func vld4q_u64*(p: pointer): uint64x2x4
+
+func vst4q_u8*(p: pointer, a: uint8x16x4)
+func vst4q_u16*(p: pointer, a: uint16x8x4)
+func vst4q_u32*(p: pointer, a: uint32x4x4)
+func vst4q_u64*(p: pointer, a: uint64x2x4)
+
+func vst4_u8*(p: pointer, a: uint8x8x4)
+func vst4_u16*(p: pointer, a: uint16x4x4)
+func vst4_u32*(p: pointer, a: uint32x2x4)
+func vst4_u64*(p: pointer, a: uint64x1x4)
 
 func vld4q_dup_u8*(p: pointer): uint8x16x4
 func vld4q_dup_u16*(p: pointer): uint16x8x4
@@ -99,5 +123,32 @@ func vgetq_lane_u8*(a: uint8x16, lane: int): uint8
 func vgetq_lane_u16*(a: uint16x8, lane: int): uint16
 func vgetq_lane_u32*(a: uint32x4, lane: int): uint32
 func vgetq_lane_u64*(a: uint64x2, lane: int): uint64
+
+func vmull_u8*(a, b: uint8x8): uint16x8
+func vmull_u16*(a, b: uint16x4): uint32x4
+func vmull_u32*(a, b: uint32x2): uint64x2
+
+func vshrq_n_u8*(a: uint8x16, n: int): uint8x16
+func vshrq_n_u16*(a: uint16x8, n: int): uint16x8
+func vshrq_n_u32*(a: uint32x4, n: int): uint32x4
+func vshrq_n_u64*(a: uint64x2, n: int): uint64x2
+
+func vrshrq_n_u8*(a: uint8x16, n: int): uint8x16
+func vrshrq_n_u16*(a: uint16x8, n: int): uint16x8
+func vrshrq_n_u32*(a: uint32x4, n: int): uint32x4
+func vrshrq_n_u64*(a: uint64x2, n: int): uint64x2
+
+func vaddhn_u16*(a, b: uint16x8): uint8x8
+func vaddhn_u32*(a, b: uint32x4): uint16x4
+func vaddhn_u64*(a, b: uint64x2): uint32x2
+
+func vraddhn_u16*(a, b: uint16x8): uint8x8
+func vraddhn_u32*(a, b: uint32x4): uint16x4
+func vraddhn_u64*(a, b: uint64x2): uint32x2
+
+func vcombine_u8*(a, b: uint8x8): uint8x16
+func vcombine_u16*(a, b: uint16x4): uint16x8
+func vcombine_u32*(a, b: uint32x2): uint32x4
+func vcombine_u64*(a, b: uint64x1): uint64x2
 
 {.pop.}
