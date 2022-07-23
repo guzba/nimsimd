@@ -35,10 +35,20 @@ func vmovq_n_u16*(a: uint16): uint16x8
 func vmovq_n_u32*(a: uint32): uint32x4
 func vmovq_n_u64*(a: uint64): uint64x2
 
+func vmov_n_u8*(a: uint8): uint8x8
+func vmov_n_u16*(a: uint16): uint16x4
+func vmov_n_u32*(a: uint32): uint32x2
+func vmov_n_u64*(a: uint64): uint64x1
+
 func vld1q_u8*(p: pointer): uint8x16
 func vld1q_u16*(p: pointer): uint16x8
 func vld1q_u32*(p: pointer): uint32x4
 func vld1q_u64*(p: pointer): uint64x2
+
+func vld1_u8*(p: pointer): uint8x8
+func vld1_u16*(p: pointer): uint16x4
+func vld1_u32*(p: pointer): uint32x2
+func vld1_u64*(p: pointer): uint64x1
 
 func vceqq_u8*(a, b: uint8x16): uint8x16
 func vceqq_u16*(a, b: uint16x8): uint16x8
@@ -63,6 +73,11 @@ func vst1q_u8*(p: pointer, v: uint8x16)
 func vst1q_u16*(p: pointer, v: uint16x8)
 func vst1q_u32*(p: pointer, v: uint32x4)
 func vst1q_u64*(p: pointer, v: uint64x2)
+
+func vst1_u8*(p: pointer, v: uint8x8)
+func vst1_u16*(p: pointer, v: uint16x4)
+func vst1_u32*(p: pointer, v: uint32x2)
+func vst1_u64*(p: pointer, v: uint64x1)
 
 func vandq_u8*(a, b: uint8x16): uint8x16
 func vandq_u16*(a, b: uint16x8): uint16x8
@@ -150,5 +165,15 @@ func vcombine_u8*(a, b: uint8x8): uint8x16
 func vcombine_u16*(a, b: uint16x4): uint16x8
 func vcombine_u32*(a, b: uint32x2): uint32x4
 func vcombine_u64*(a, b: uint64x1): uint64x2
+
+func vbicq_u8*(a, b: uint8x16): uint8x16
+func vbicq_u16*(a, b: uint16x8): uint16x8
+func vbicq_u32*(a, b: uint32x4): uint32x4
+func vbicq_u64*(a, b: uint64x2): uint64x2
+
+func vsubq_u8*(a, b: uint8x16): uint8x16
+func vsubq_u16*(a, b: uint16x8): uint16x8
+func vsubq_u32*(a, b: uint32x4): uint32x4
+func vsubq_u64*(a, b: uint64x2): uint64x2
 
 {.pop.}
