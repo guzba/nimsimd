@@ -12,6 +12,24 @@ type
   uint32x2* {.importc: "uint32x2_t".} = object
   uint64x1* {.importc: "uint64x1_t".} = object
 
+  uint8x16x2* {.importc: "uint8x16x2_t".} = object
+    val*: array[2, uint8x16]
+  uint16x8x2* {.importc: "uint16x8x2_t".} = object
+    val*: array[2, uint16x8]
+  uint32x4x2* {.importc: "uint32x4x2_t".} = object
+    val*: array[2, uint32x4]
+  uint64x2x2* {.importc: "uint64x2x2_t".} = object
+    val*: array[2, uint64x2]
+
+  uint8x16x3* {.importc: "uint8x16x3_t".} = object
+    val*: array[3, uint8x16]
+  uint16x8x3* {.importc: "uint16x8x3_t".} = object
+    val*: array[3, uint16x8]
+  uint32x4x3* {.importc: "uint32x4x3_t".} = object
+    val*: array[3, uint32x4]
+  uint64x2x3* {.importc: "uint64x2x3_t".} = object
+    val*: array[3, uint64x2]
+
   uint8x16x4* {.importc: "uint8x16x4_t".} = object
     val*: array[4, uint8x16]
   uint16x8x4* {.importc: "uint16x8x4_t".} = object
@@ -20,6 +38,24 @@ type
     val*: array[4, uint32x4]
   uint64x2x4* {.importc: "uint64x2x4_t".} = object
     val*: array[4, uint64x2]
+
+  uint8x8x2* {.importc: "uint8x8x2_t".} = object
+    val*: array[2, uint8x8]
+  uint16x4x2* {.importc: "uint16x4x2_t".} = object
+    val*: array[2, uint16x4]
+  uint32x2x2* {.importc: "uint32x2x2_t".} = object
+    val*: array[2, uint32x2]
+  uint64x1x2* {.importc: "uint64x1x2_t".} = object
+    val*: array[2, uint64x1]
+
+  uint8x8x3* {.importc: "uint8x8x3_t".} = object
+    val*: array[3, uint8x8]
+  uint16x4x3* {.importc: "uint16x4x3_t".} = object
+    val*: array[3, uint16x4]
+  uint32x2x3* {.importc: "uint32x2x3_t".} = object
+    val*: array[3, uint32x2]
+  uint64x1x3* {.importc: "uint64x1x3_t".} = object
+    val*: array[3, uint64x1]
 
   uint8x8x4* {.importc: "uint8x8x4_t".} = object
     val*: array[4, uint8x8]
@@ -78,6 +114,16 @@ func vst1_u8*(p: pointer, v: uint8x8)
 func vst1_u16*(p: pointer, v: uint16x4)
 func vst1_u32*(p: pointer, v: uint32x2)
 func vst1_u64*(p: pointer, v: uint64x1)
+
+func vst2_u8*(p: pointer, v: uint8x8x2)
+func vst2_u16*(p: pointer, v: uint16x4x2)
+func vst2_u32*(p: pointer, v: uint32x2x2)
+func vst2_u64*(p: pointer, v: uint64x1x2)
+
+func vst1_u8_x2*(p: pointer, v: uint8x8x2)
+func vst1_u16_x2*(p: pointer, v: uint16x4x2)
+func vst1_u32_x2*(p: pointer, v: uint32x2x2)
+func vst1_u64_x2*(p: pointer, v: uint64x1x2)
 
 func vandq_u8*(a, b: uint8x16): uint8x16
 func vandq_u16*(a, b: uint16x8): uint16x8
@@ -139,6 +185,10 @@ func vgetq_lane_u16*(a: uint16x8, lane: int): uint16
 func vgetq_lane_u32*(a: uint32x4, lane: int): uint32
 func vgetq_lane_u64*(a: uint64x2, lane: int): uint64
 
+func vaddl_u8*(a, b: uint8x8): uint16x8
+func vaddl_u16*(a, b: uint16x4): uint32x4
+func vaddl_u32*(a, b: uint32x2): uint64x2
+
 func vmull_u8*(a, b: uint8x8): uint16x8
 func vmull_u16*(a, b: uint16x4): uint32x4
 func vmull_u32*(a, b: uint32x2): uint64x2
@@ -152,6 +202,10 @@ func vrshrq_n_u8*(a: uint8x16, n: int): uint8x16
 func vrshrq_n_u16*(a: uint16x8, n: int): uint16x8
 func vrshrq_n_u32*(a: uint32x4, n: int): uint32x4
 func vrshrq_n_u64*(a: uint64x2, n: int): uint64x2
+
+func vrshrn_n_u16*(a: uint16x8, n: int): uint8x8
+func vrshrn_n_u32*(a: uint32x4, n: int): uint16x4
+func vrshrn_n_u64*(a: uint64x2, n: int): uint32x2
 
 func vaddhn_u16*(a, b: uint16x8): uint8x8
 func vaddhn_u32*(a, b: uint32x4): uint16x4
@@ -175,5 +229,15 @@ func vsubq_u8*(a, b: uint8x16): uint8x16
 func vsubq_u16*(a, b: uint16x8): uint16x8
 func vsubq_u32*(a, b: uint32x4): uint32x4
 func vsubq_u64*(a, b: uint64x2): uint64x2
+
+func vzip_u8*(a, b: uint8x8): uint8x8x2
+func vzip_u16*(a, b: uint16x4): uint16x4x2
+func vzip_u32*(a, b: uint32x2): uint32x2x2
+
+func vmovl_u8*(a: uint8x8): uint16x8
+func vmovl_u16*(a: uint16x4): uint32x4
+func vmovl_u32*(a: uint32x2): uint64x2
+
+func vtbl1_u8*(a, idx: uint8x8): uint8x8
 
 {.pop.}
