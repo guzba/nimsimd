@@ -86,6 +86,11 @@ func vld1_u16*(p: pointer): uint16x4
 func vld1_u32*(p: pointer): uint32x2
 func vld1_u64*(p: pointer): uint64x1
 
+func vceq_u8*(a, b: uint8x8): uint8x8
+func vceq_u16*(a, b: uint16x4): uint16x4
+func vceq_u32*(a, b: uint32x2): uint32x2
+func vceq_u64*(a, b: uint64x1): uint64x1
+
 func vceqq_u8*(a, b: uint8x16): uint8x16
 func vceqq_u16*(a, b: uint16x8): uint16x8
 func vceqq_u32*(a, b: uint32x4): uint32x4
@@ -94,6 +99,11 @@ func vceqq_u64*(a, b: uint64x2): uint64x2
 func vpaddlq_u8*(a: uint8x16): uint16x8
 func vpaddlq_u16*(a: uint16x8): uint32x4
 func vpaddlq_u32*(a: uint32x4): uint64x2
+
+func vadd_u8*(a, b: uint8x8): uint8x8
+func vadd_u16*(a, b: uint16x4): uint16x4
+func vadd_u32*(a, b: uint32x2): uint32x2
+func vadd_u64*(a, b: uint64x1): uint64x1
 
 func vaddq_u8*(a, b: uint8x16): uint8x16
 func vaddq_u16*(a, b: uint16x8): uint16x8
@@ -124,6 +134,11 @@ func vst1_u8_x2*(p: pointer, v: uint8x8x2)
 func vst1_u16_x2*(p: pointer, v: uint16x4x2)
 func vst1_u32_x2*(p: pointer, v: uint32x2x2)
 func vst1_u64_x2*(p: pointer, v: uint64x1x2)
+
+func vand_u8*(a, b: uint8x8): uint8x8
+func vand_u16*(a, b: uint16x4): uint16x4
+func vand_u32*(a, b: uint32x2): uint32x2
+func vand_u64*(a, b: uint64x1): uint64x1
 
 func vandq_u8*(a, b: uint8x16): uint8x16
 func vandq_u16*(a, b: uint16x8): uint16x8
@@ -180,6 +195,11 @@ func vzip1q_u16*(a, b: uint16x8): uint16x8
 func vzip1q_u32*(a, b: uint32x4): uint32x4
 func vzip1q_u64*(a, b: uint64x2): uint64x2
 
+func vget_lane_u8*(a: uint8x8, lane: int): uint8
+func vget_lane_u16*(a: uint16x4, lane: int): uint16
+func vget_lane_u32*(a: uint32x2, lane: int): uint32
+func vget_lane_u64*(a: uint64x1, lane: int): uint64
+
 func vgetq_lane_u8*(a: uint8x16, lane: int): uint8
 func vgetq_lane_u16*(a: uint16x8, lane: int): uint16
 func vgetq_lane_u32*(a: uint32x4, lane: int): uint32
@@ -224,6 +244,11 @@ func vbicq_u8*(a, b: uint8x16): uint8x16
 func vbicq_u16*(a, b: uint16x8): uint16x8
 func vbicq_u32*(a, b: uint32x4): uint32x4
 func vbicq_u64*(a, b: uint64x2): uint64x2
+
+func vsub_u8*(a, b: uint8x8): uint8x8
+func vsub_u16*(a, b: uint16x4): uint16x4
+func vsub_u32*(a, b: uint32x2): uint32x2
+func vsub_u64*(a, b: uint64x1): uint64x1
 
 func vsubq_u8*(a, b: uint8x16): uint8x16
 func vsubq_u16*(a, b: uint16x8): uint16x8
