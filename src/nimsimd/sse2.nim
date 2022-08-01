@@ -492,7 +492,7 @@ func mm_set_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_set_epi32"
 
 func mm_set_epi64x*(a, b: int64): M128i {.importc: "_mm_set_epi64x".}
 
-func mm_set_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8): M128i {.importc: "_mm_set_epi8".}
+func mm_set_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: int8 | uint8): M128i {.importc: "_mm_set_epi8".}
 
 func mm_set_pd*(a, b: float64): M128d {.importc: "_mm_set_pd".}
 

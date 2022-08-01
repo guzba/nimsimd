@@ -55,11 +55,11 @@ func mm256_castps_pd*(a: M256): M128d {.importc: "_mm256_castps_pd".}
 
 func mm256_castps_si256*(a: M256): M128i {.importc: "_mm256_castps_si256".}
 
-func mm256_castps128_ps256*(a: M128): M128 {.importc: "_mm256_castps128_ps256".}
+func mm256_castps128_ps256*(a: M128): M256 {.importc: "_mm256_castps128_ps256".}
 
 func mm256_castps256_ps128*(a: M256): M128 {.importc: "_mm256_castps256_ps128".}
 
-func mm256_castsi128_si256*(a: M128i): M128i {.importc: "_mm256_castsi128_si256".}
+func mm256_castsi128_si256*(a: M128i): M256i {.importc: "_mm256_castsi128_si256".}
 
 func mm256_castsi256_pd*(a: M256i): M128d {.importc: "_mm256_castsi256_pd".}
 
@@ -109,45 +109,45 @@ func mm256_div_pd*(a, b: M256d): M256d {.importc: "_mm256_div_pd".}
 
 func mm256_div_ps*(a, b: M256): M256 {.importc: "_mm256_div_ps".}
 
-func mm256_dp_ps*(a, b: M256, imm8: int32 | uint32) {.importc: "_mm256_dp_ps".}
+func mm256_dp_ps*(a, b: M256, imm8: int32 | uint32): M256 {.importc: "_mm256_dp_ps".}
 
 func mm256_extract_epi32*(a: M256i, index: int32 | uint32): int32 {.importc: "_mm256_extract_epi32".}
 
 func mm256_extract_epi64*(a: M256i, index: int32 | uint32): int64 {.importc: "_mm256_extract_epi64".}
 
-func mm256_extractf128_pd*(a: M256d, imm8: int32 | uint32) {.importc: "_mm256_extractf128_pd".}
+func mm256_extractf128_pd*(a: M256d, imm8: int32 | uint32): M128d {.importc: "_mm256_extractf128_pd".}
 
-func mm256_extractf128_ps*(a: M256, imm8: int32 | uint32) {.importc: "_mm256_extractf128_ps".}
+func mm256_extractf128_ps*(a: M256, imm8: int32 | uint32): M128 {.importc: "_mm256_extractf128_ps".}
 
-func mm256_extractf128_si256*(a: M256i, imm8: int32 | uint32) {.importc: "_mm256_extractf128_si256".}
+func mm256_extractf128_si256*(a: M256i, imm8: int32 | uint32): M128i {.importc: "_mm256_extractf128_si256".}
 
-func mm256_floor_pd*(a: M256d) {.importc: "_mm256_floor_pd".}
+func mm256_floor_pd*(a: M256d): M256d {.importc: "_mm256_floor_pd".}
 
-func mm256_floor_ps*(a: M256) {.importc: "_mm256_floor_ps".}
+func mm256_floor_ps*(a: M256): M256 {.importc: "_mm256_floor_ps".}
 
-func mm256_hadd_pd*(a, b: M256d) {.importc: "_mm256_hadd_pd".}
+func mm256_hadd_pd*(a, b: M256d): M256d {.importc: "_mm256_hadd_pd".}
 
-func mm256_hadd_ps*(a, b: M256) {.importc: "_mm256_hadd_ps".}
+func mm256_hadd_ps*(a, b: M256): M256 {.importc: "_mm256_hadd_ps".}
 
-func mm256_hsub_pd*(a, b: M256d) {.importc: "_mm256_hsub_pd".}
+func mm256_hsub_pd*(a, b: M256d): M256d {.importc: "_mm256_hsub_pd".}
 
-func mm256_hsub_ps*(a, b: M256) {.importc: "_mm256_hsub_ps".}
+func mm256_hsub_ps*(a, b: M256): M256 {.importc: "_mm256_hsub_ps".}
 
-func mm256_insert_epi16*(a: M256i, i: int16 | uint16, index: int32 | uint32) {.importc: "_mm256_insert_epi16".}
+func mm256_insert_epi16*(a: M256i, i: int16 | uint16, index: int32 | uint32): M256i {.importc: "_mm256_insert_epi16".}
 
-func mm256_insert_epi32*(a: M256i, i: int32 | uint32, index: int32 | uint32) {.importc: "_mm256_insert_epi32".}
+func mm256_insert_epi32*(a: M256i, i: int32 | uint32, index: int32 | uint32): M256i {.importc: "_mm256_insert_epi32".}
 
-func mm256_insert_epi64*(a: M256i, i: int64 | uint64, index: int32 | uint32) {.importc: "_mm256_insert_epi64".}
+func mm256_insert_epi64*(a: M256i, i: int64 | uint64, index: int32 | uint32): M256i {.importc: "_mm256_insert_epi64".}
 
-func mm256_insert_epi8*(a: M256i, i: int8 | uint8, index: int32 | uint32) {.importc: "_mm256_insert_epi8".}
+func mm256_insert_epi8*(a: M256i, i: int8 | uint8, index: int32 | uint32): M256i {.importc: "_mm256_insert_epi8".}
 
-func mm256_insertf128_pd*(a: M256d, b: M128d, imm8: int32 | uint32) {.importc: "_mm256_insertf128_pd".}
+func mm256_insertf128_pd*(a: M256d, b: M128d, imm8: int32 | uint32): M256d {.importc: "_mm256_insertf128_pd".}
 
-func mm256_insertf128_ps*(a: M256, b: M128, imm8: int32 | uint32) {.importc: "_mm256_insertf128_ps".}
+func mm256_insertf128_ps*(a: M256, b: M128, imm8: int32 | uint32): M256 {.importc: "_mm256_insertf128_ps".}
 
-func mm256_insertf128_si256*(a: M256i, b: M128i, imm8: int32 | uint32) {.importc: "_mm256_insertf128_si256".}
+func mm256_insertf128_si256*(a: M256i, b: M128i, imm8: int32 | uint32): M256i {.importc: "_mm256_insertf128_si256".}
 
-func mm256_lddqu_si256*(p: pointer) {.importc: "_mm256_lddqu_si256".}
+func mm256_lddqu_si256*(p: pointer): M256i {.importc: "_mm256_lddqu_si256".}
 
 func mm256_load_pd*(p: pointer): M256d {.importc: "_mm256_load_pd".}
 
@@ -365,7 +365,7 @@ func mm256_undefined_ps*(): M256 {.importc: "_mm256_undefined_ps".}
 
 func mm256_undefined_si256*(): M256i {.importc: "_mm256_undefined_si256".}
 
-func mm256_unpackhi_pd*(a, b: M256d) {.importc: "_mm256_unpackhi_pd".}
+func mm256_unpackhi_pd*(a, b: M256d): M256d {.importc: "_mm256_unpackhi_pd".}
 
 func mm256_unpackhi_ps*(a, b: M256): M256 {.importc: "_mm256_unpackhi_ps".}
 
