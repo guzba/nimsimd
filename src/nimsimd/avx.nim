@@ -41,35 +41,35 @@ func mm256_broadcast_sd*(p: pointer): M256d {.importc: "_mm256_broadcast_sd".}
 
 func mm_broadcast_ss*(p: pointer): M128 {.importc: "_mm_broadcast_ss".}
 
-func mm256_broadcast_ss*(p: pointer): M128 {.importc: "_mm256_broadcast_ss".}
+func mm256_broadcast_ss*(p: pointer): M256 {.importc: "_mm256_broadcast_ss".}
 
-func mm256_castpd_ps*(a: M256d): M128 {.importc: "_mm256_castpd_ps".}
+func mm256_castpd_ps*(a: M256d): M256 {.importc: "_mm256_castpd_ps".}
 
-func mm256_castpd_si256*(a: M256d): M128i {.importc: "_mm256_castpd_si256".}
+func mm256_castpd_si256*(a: M256d): M256i {.importc: "_mm256_castpd_si256".}
 
 func mm256_castpd128_pd256*(a: M128d): M256d {.importc: "_mm256_castpd128_pd256".}
 
 func mm256_castpd256_pd128*(a: M256d): M128d {.importc: "_mm256_castpd256_pd128".}
 
-func mm256_castps_pd*(a: M256): M128d {.importc: "_mm256_castps_pd".}
+func mm256_castps_pd*(a: M256): M256d {.importc: "_mm256_castps_pd".}
 
-func mm256_castps_si256*(a: M256): M128i {.importc: "_mm256_castps_si256".}
+func mm256_castps_si256*(a: M256): M256i {.importc: "_mm256_castps_si256".}
 
 func mm256_castps128_ps256*(a: M128): M256 {.importc: "_mm256_castps128_ps256".}
 
-func mm256_castps256_ps128*(a: M256): M128 {.importc: "_mm256_castps256_ps128".}
+func mm256_castps256_ps128*(a: M256): M256 {.importc: "_mm256_castps256_ps128".}
 
 func mm256_castsi128_si256*(a: M128i): M256i {.importc: "_mm256_castsi128_si256".}
 
-func mm256_castsi256_pd*(a: M256i): M128d {.importc: "_mm256_castsi256_pd".}
+func mm256_castsi256_pd*(a: M256i): M256d {.importc: "_mm256_castsi256_pd".}
 
-func mm256_castsi256_ps*(a: M256i): M128 {.importc: "_mm256_castsi256_ps".}
+func mm256_castsi256_ps*(a: M256i): M256 {.importc: "_mm256_castsi256_ps".}
 
 func mm256_castsi256_si128*(a: M256i): M128i {.importc: "_mm256_castsi256_si128".}
 
-func mm256_ceil_pd*(a: M256d): M128d {.importc: "_mm256_ceil_pd".}
+func mm256_ceil_pd*(a: M256d): M256d {.importc: "_mm256_ceil_pd".}
 
-func mm256_ceil_ps*(a: M256): M128 {.importc: "_mm256_ceil_ps".}
+func mm256_ceil_ps*(a: M256): M256 {.importc: "_mm256_ceil_ps".}
 
 func mm_cmp_pd*(a, b: M128d, imm8: int32 | uint32): M128d {.importc: "_mm_cmp_pd".}
 
