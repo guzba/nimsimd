@@ -1,4 +1,6 @@
 when defined(amd64):
+  ## https://www.felixcloutier.com/x86/cpuid
+
   type
     InstructionSet* = enum
       SSE3
@@ -8,6 +10,7 @@ when defined(amd64):
       AVX
       AVX2
       PCLMULQDQ
+      SHA
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
@@ -19,7 +22,8 @@ when defined(amd64):
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 20), # SSE42
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 28), # AVX
     InstructionSetCheckInfo(leaf: 7, register: 1, bit: 5), # AVX2
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1) # PCLMULQDQ
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1), # PCLMULQDQ
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 29) # SHA
   ]
 
   proc cpuid(eaxi, ecxi: int32): array[4, int32] = # eax, ebx, ecx, edx
