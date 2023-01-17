@@ -11,6 +11,7 @@ when defined(amd64):
       AVX2
       PCLMULQDQ
       SHA
+      AES
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
@@ -23,7 +24,8 @@ when defined(amd64):
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 28), # AVX
     InstructionSetCheckInfo(leaf: 7, register: 1, bit: 5), # AVX2
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1), # PCLMULQDQ
-    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 29) # SHA
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 29), # SHA
+    InstructionSetCheckInfo(leaf: 7, register: 2, bit: 25) # AES
   ]
 
   proc cpuid(eaxi, ecxi: int32): array[4, int32] = # eax, ebx, ecx, edx
