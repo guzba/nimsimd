@@ -105,15 +105,36 @@ func vadd_u16*(a, b: uint16x4): uint16x4
 func vadd_u32*(a, b: uint32x2): uint32x2
 func vadd_u64*(a, b: uint64x1): uint64x1
 
+func vpadd_u8*(a, b: uint8x8): uint8x8
+func vpadd_u16*(a, b: uint16x4): uint16x4
+func vpadd_u32*(a, b: uint32x2): uint32x2
+
 func vaddq_u8*(a, b: uint8x16): uint8x16
 func vaddq_u16*(a, b: uint16x8): uint16x8
 func vaddq_u32*(a, b: uint32x4): uint32x4
 func vaddq_u64*(a, b: uint64x2): uint64x2
 
+func vpadalq_u8*(a: uint16x8, b: uint8x16): uint16x8
+func vpadalq_u16*(a: uint32x4, b: uint16x8): uint32x4
+func vpadalq_u32*(a: uint64x2, b: uint32x4): uint64x2
+
+func vaddw_u8*(a: uint16x8, b: uint8x8): uint16x8
+func vaddw_u16*(a: uint32x4, b: uint16x4): uint32x4
+func vaddw_u32*(a: uint64x2, b: uint32x2): uint64x2
+
+func vmlal_u8*(a: uint16x8, b, c: uint8x8): uint16x8
+func vmlal_u16*(a: uint32x4, b, c: uint16x4): uint32x4
+func vmlal_u32*(a: uint64x2, b, c: uint32x2): uint64x2
+
 func vst1q_lane_u8*(p: pointer, v: uint8x16, lane: int)
 func vst1q_lane_u16*(p: pointer, v: uint16x8, lane: int)
 func vst1q_lane_u32*(p: pointer, v: uint32x4, lane: int)
 func vst1q_lane_u64*(p: pointer, v: uint64x2, lane: int)
+
+func vld1q_lane_u8*(p: pointer, v: uint8x16, lane: int): uint8x16
+func vld1q_lane_u16*(p: pointer, v: uint16x8, lane: int): uint16x8
+func vld1q_lane_u32*(p: pointer, v: uint32x4, lane: int): uint32x4
+func vld1q_lane_u64*(p: pointer, v: uint64x2, lane: int): uint64x2
 
 func vst1q_u8*(p: pointer, v: uint8x16)
 func vst1q_u16*(p: pointer, v: uint16x8)
@@ -217,6 +238,11 @@ func vshrq_n_u8*(a: uint8x16, n: int): uint8x16
 func vshrq_n_u16*(a: uint16x8, n: int): uint16x8
 func vshrq_n_u32*(a: uint32x4, n: int): uint32x4
 func vshrq_n_u64*(a: uint64x2, n: int): uint64x2
+
+func vshlq_n_u8*(a: uint8x16, n: int): uint8x16
+func vshlq_n_u16*(a: uint16x8, n: int): uint16x8
+func vshlq_n_u32*(a: uint32x4, n: int): uint32x4
+func vshlq_n_u64*(a: uint64x2, n: int): uint64x2
 
 func vrshrq_n_u8*(a: uint8x16, n: int): uint8x16
 func vrshrq_n_u16*(a: uint16x8, n: int): uint16x8
