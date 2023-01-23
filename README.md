@@ -8,10 +8,6 @@ This repo provides pleasant Nim bindings for various SIMD instructions.
 
 Each SIMD instruction set is in its own file for importing.
 
-## Status
-
-This repo is under development. Check back here for the latest status.
-
 ## x86
 
 Instruction Set | Bindings
@@ -56,8 +52,9 @@ NEON bindings are started but experimental. Much to learn here about versioning 
 
 ## Uses of nimsimd
 
-* [Noisy](https://github.com/guzba/noisy) uses SIMD to accelerate generating coherent noise.
 * [Pixie](https://github.com/treeform/pixie) uses SIMD for faster 2D drawing.
+* [Crunchy](https://github.com/guzba/crunchy) uses SIMD for faster hashing and checksums.
+* [Noisy](https://github.com/guzba/noisy) uses SIMD to accelerate generating coherent noise.
 
 ## Testing
 
