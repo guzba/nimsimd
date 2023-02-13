@@ -32,7 +32,7 @@ when defined(amd64):
     when defined(vcc):
       proc cpuid(cpuInfo: ptr int32, functionId, subFunctionId: int32)
         {.cdecl, importc: "__cpuidex", header: "intrin.h".}
-      cpuid(result.eax.addr, eaxi, ecxi)
+      cpuid(cast[ptr int32](result.addr), eaxi, ecxi)
     else:
       var (eaxr, ebxr, ecxr, edxr) = (0'i32, 0'i32, 0'i32, 0'i32)
       asm """
