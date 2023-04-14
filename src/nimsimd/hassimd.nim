@@ -1,6 +1,6 @@
 import std/macros, std/tables
 
-var simdProcs* {.compiletime.}: Table[string, NimNode]
+var simdProcs* {.compileTime.}: Table[string, NimNode]
 
 proc procName(procedure: NimNode): string =
   ## Given a procedure this returns the name as a string.
