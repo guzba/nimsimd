@@ -96,6 +96,11 @@ func vceqq_u16*(a, b: uint16x8): uint16x8
 func vceqq_u32*(a, b: uint32x4): uint32x4
 func vceqq_u64*(a, b: uint64x2): uint64x2
 
+func vcltq_u8*(a, b: uint8x16): uint8x16
+func vcltq_u16*(a, b: uint16x8): uint16x8
+func vcltq_u32*(a, b: uint32x4): uint32x4
+func vcltq_u64*(a, b: uint64x2): uint64x2
+
 func vpaddlq_u8*(a: uint8x16): uint16x8
 func vpaddlq_u16*(a: uint16x8): uint32x4
 func vpaddlq_u32*(a: uint32x4): uint64x2
@@ -165,6 +170,11 @@ func vandq_u8*(a, b: uint8x16): uint8x16
 func vandq_u16*(a, b: uint16x8): uint16x8
 func vandq_u32*(a, b: uint32x4): uint32x4
 func vandq_u64*(a, b: uint64x2): uint64x2
+
+func vorr_u8*(a, b: uint8x8): uint8x8
+func vorr_u16*(a, b: uint16x4): uint16x4
+func vorr_u32*(a, b: uint32x2): uint32x2
+func vorr_u64*(a, b: uint64x1): uint64x1
 
 func vorrq_u8*(a, b: uint8x16): uint8x16
 func vorrq_u16*(a, b: uint16x8): uint16x8
