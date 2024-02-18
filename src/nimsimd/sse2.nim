@@ -266,7 +266,7 @@ func mm_castpd_si128*(a: M128d): M128i {.importc: "_mm_castpd_si128".}
 
 func mm_castps_pd*(a: M128): M128d {.importc: "_mm_castps_pd".}
 
-func mm_castps_si128*(a: M128d): M128i {.importc: "_mm_castps_si128".}
+func mm_castps_si128*(a: M128): M128i {.importc: "_mm_castps_si128".}
 
 func mm_castsi128_pd*(a: M128i): M128d {.importc: "_mm_castsi128_pd".}
 

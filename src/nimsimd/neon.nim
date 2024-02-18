@@ -244,6 +244,10 @@ func vmull_u8*(a, b: uint8x8): uint16x8
 func vmull_u16*(a, b: uint16x4): uint32x4
 func vmull_u32*(a, b: uint32x2): uint64x2
 
+func vshrn_n_u16*(a: uint16x8, n: int): uint8x8
+func vshrn_n_u32*(a: uint32x4, n: int): uint16x4
+func vshrn_n_u64*(a: uint64x2, n: int): uint32x2
+
 func vshrq_n_u8*(a: uint8x16, n: int): uint8x16
 func vshrq_n_u16*(a: uint16x8, n: int): uint16x8
 func vshrq_n_u32*(a: uint32x4, n: int): uint32x4
