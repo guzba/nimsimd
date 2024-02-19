@@ -214,6 +214,8 @@ func mm256_permute2x128_si256*(a, b: M256i, imm8: int32 | uint32): M256i {.impor
 
 func mm256_permute4x64_epi64*(a: M256i, imm8: int32 | uint32): M256i {.importc: "_mm256_permute4x64_epi64".}
 
+func mm256_permute4x64_pd*(a: M256d, imm8: int32 | uint32): M256d {.importc: "_mm256_permute4x64_pd".}
+
 func mm256_permutevar8x32_epi32*(a, idx: M256i): M256i {.importc: "_mm256_permutevar8x32_epi32".}
 
 func mm256_permutevar8x32_ps*(a: M256, idx: M256i): M256 {.importc: "_mm256_permutevar8x32_ps".}
