@@ -12,20 +12,28 @@ when defined(amd64):
       PCLMULQDQ
       SHA
       AES
+      CMPXCHG16B # Atomic CompareExchange 16-byte, avail. since Haswell
+      F16C       # needs test
+      BM1        # ŴIP
+      BM2        # WIP
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
 
   const checkInfos = [
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 0), # SSE3
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 9), # SSSE3
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 0),  # SSE3
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 9),  # SSSE3
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 19), # SSE41
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 20), # SSE42
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 28), # AVX
-    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 5), # AVX2
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1), # PCLMULQDQ
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 5),  # AVX2
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1),  # PCLMULQDQ
     InstructionSetCheckInfo(leaf: 7, register: 1, bit: 29), # SHA
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 25) # AES
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 25), # AES
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 13), # CMPXCHG16B
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 29), # F16C
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit:  3), # BMI1
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit:  8), # BMI2
   ]
 
   proc cpuid(eaxi, ecxi: int32): array[4, int32] = # eax, ebx, ecx, edx
