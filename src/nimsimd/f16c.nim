@@ -18,3 +18,4 @@ func mm_cvtps_ph*(    vec :M128, imm8 :int32 ) :M128i {.importc: "_mm_cvtps_ph".
 func mm256_cvtph_ps*( vec :M128i )             :M256  {.importc: "_mm256_cvtph_ps".}
 func mm256_cvtps_ph*( vec :M256, imm8 :int32 ) :M128i {.importc: "_mm256_cvtps_ph".}
 
+{.pop.}
