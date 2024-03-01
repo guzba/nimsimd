@@ -11,7 +11,7 @@ Each SIMD instruction set is in its own file for importing.
 ## x86
 
 Instruction Set | Bindings
---------- | ----:
+--------- | :----:
 SSE       | ✅
 SSE2      | ✅
 SSE3      | ✅
@@ -22,7 +22,7 @@ AVX       | ✅
 AVX2      | ✅
 PCLMULQDQ | ✅
 BMI1      | ✅
-BMI1      | ✅
+BMI2      | ✅
 F16C      | ✅
 MOVBE     | ✅
 ### Compiler flags
