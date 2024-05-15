@@ -181,6 +181,11 @@ func vorrq_u16*(a, b: uint16x8): uint16x8
 func vorrq_u32*(a, b: uint32x4): uint32x4
 func vorrq_u64*(a, b: uint64x2): uint64x2
 
+func veorq_u8*(a, b: uint8x16): uint8x16
+func veorq_u16*(a, b: uint16x8): uint16x8
+func veorq_u32*(a, b: uint32x4): uint32x4
+func veorq_u64*(a, b: uint64x2): uint64x2 
+
 func vget_low_u8*(a: uint8x16): uint8x8
 func vget_low_u16*(a: uint16x8): uint16x4
 func vget_low_u32*(a: uint32x4): uint32x2
