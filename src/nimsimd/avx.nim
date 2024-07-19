@@ -223,11 +223,11 @@ func mm256_permute2f128_ps*(a, b: M256, imm8: int32 | uint32): M256 {.importc: "
 
 func mm256_permute2f128_si256*(a, b: M256i, imm8: int32 | uint32): M256i {.importc: "_mm256_permute2f128_si256".}
 
-func mm_permutevar_pd*(a: M128d, b: M128i): M256d {.importc: "_mm_permutevar_pd".}
+func mm_permutevar_pd*(a: M128d, b: M128i): M128d {.importc: "_mm_permutevar_pd".}
 
 func mm256_permutevar_pd*(a: M256d, b: M256i): M256d {.importc: "_mm256_permutevar_pd".}
 
-func mm_permutevar_ps*(a: M128, b: M128i): M256 {.importc: "_mm_permutevar_ps".}
+func mm_permutevar_ps*(a: M128, b: M128i): M128 {.importc: "_mm_permutevar_ps".}
 
 func mm256_permutevar_ps*(a: M256, b: M256i): M256 {.importc: "_mm256_permutevar_ps".}
 
