@@ -5,7 +5,7 @@ func andn_u32*(     a,b :uint32 )         :uint32          {.importc: "_andn_u32
 func andn_u64*(     a,b :uint64 )         :uint64          {.importc: "_andn_u64".}
 
 func bextr_u32*(    a,start,len :uint32 ) :uint32          {.importc: "_bextr_u32".}
-func bextr_u64*(    a,start,len :uint64 ) :uint64          {.importc: "_bextr_u64".}
+func bextr_u64*(    a :int64; start,len :uint32 ) :uint64  {.importc: "_bextr_u64".}
 
 func bextr2_u32*(   a,control :uint32 )   :uint32          {.importc: "_bextr2_u32".}
 func bextr2_u64*(   a,control :uint64 )   :uint64          {.importc: "_bextr2_u64".}
