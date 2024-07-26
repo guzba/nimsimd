@@ -4,6 +4,8 @@ export avx
 
 {.push header: "immintrin.h".}
 
+func mm_blend_epi32*(a, b: M128i, imm8: int32): M128i {.importc: "_mm_blend_epi32".}
+
 func mm256_abs_epi16*(a: M256i): M256i {.importc: "_mm256_abs_epi16".}
 
 func mm256_abs_epi32*(a: M256i): M256i {.importc: "_mm256_abs_epi32".}
@@ -47,6 +49,18 @@ func mm256_broadcastb_epi8*(a: M128i): M256i {.importc: "_mm256_broadcastb_epi8"
 func mm256_broadcastd_epi32*(a: M128i): M256i {.importc: "_mm256_broadcastd_epi32".}
 
 func mm256_broadcastq_epi64*(a: M128i): M256i {.importc: "_mm256_broadcastq_epi64".}
+
+func mm_broadcastq_epi64*(a: M128i): M128i {.importc: "_mm_broadcastq_epi64".}
+
+func mm_broadcastd_epi32*(a: M128i): M128i {.importc: "_mm_broadcastd_epi32".}
+
+func mm_broadcastw_epi16*(a: M128i): M128i {.importc: "_mm_broadcastw_epi16".}
+
+func mm_broadcastb_epi8*(a: M128i): M128i {.importc: "_mm_broadcastb_epi8".}
+
+func mm_broadcastsd_pd*(a: M128d): M128d {.importc: "_mm_broadcastsd_pd".}
+
+func mm_broadcastss_ps*(a: M128): M128 {.importc: "_mm_broadcastss_ps".}
 
 func mm_broadcastsi128_si256*(a: M128i): M256i {.importc: "_mm_broadcastsi128_si256".}
 

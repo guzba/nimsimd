@@ -6,7 +6,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        nim-version: ['1.0.x', '1.2.x', '1.4.x', '1.6.x', 'stable']
+        nim-version: ['1.2.x', '1.4.x', '1.6.x', 'stable']
         include:
           - nim-version: '1.4.x'
             gc_orc: true
@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: jiro4989/setup-nim-action@v1
       with:
         nim-version: ${{ matrix.nim-version }}

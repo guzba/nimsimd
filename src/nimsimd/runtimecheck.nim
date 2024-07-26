@@ -12,6 +12,10 @@ when defined(amd64):
       PCLMULQDQ
       SHA
       AES
+      CMPXCHG16B # Atomic CompareExchange 16-byte, avail. since Haswell
+      F16C
+      BM1
+      BM2
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
@@ -25,7 +29,11 @@ when defined(amd64):
     InstructionSetCheckInfo(leaf: 7, register: 1, bit: 5), # AVX2
     InstructionSetCheckInfo(leaf: 1, register: 2, bit: 1), # PCLMULQDQ
     InstructionSetCheckInfo(leaf: 7, register: 1, bit: 29), # SHA
-    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 25) # AES
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 25), # AES
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 13), # CMPXCHG16B
+    InstructionSetCheckInfo(leaf: 1, register: 2, bit: 29), # F16C
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 3), # BMI1
+    InstructionSetCheckInfo(leaf: 7, register: 1, bit: 8), # BMI2
   ]
 
   proc cpuid(eaxi, ecxi: int32): array[4, int32] = # eax, ebx, ecx, edx
