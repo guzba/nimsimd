@@ -1,4 +1,4 @@
-{.pushheader: "immintrin.h".}
+{.push header: "immintrin.h".}
 
 func bzhi_u32*(a: uint32, index: uint32): uint32 {.importc: "_bzhi_u32".}
 func bzhi_u64*(a: uint64, index: uint32): uint64 {.importc: "_bzhi_u64".}
