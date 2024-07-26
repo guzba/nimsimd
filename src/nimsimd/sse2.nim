@@ -1,7 +1,7 @@
 ## SSE and SSE2 intrinsics
 
 type
-  M128*  {.importc: "__m128",  header: "xmmintrin.h".} = object
+  M128* {.importc: "__m128", header: "xmmintrin.h".} = object
   M128i* {.importc: "__m128i", header: "emmintrin.h".} = object
   M128d* {.importc: "__m128d", header: "emmintrin.h".} = object
 
@@ -12,17 +12,17 @@ template MM_SHUFFLE*(z, y, x, w: int | uint): int32 =
 
 
 const
-  MM_HINT_T0*:  int32 = 3
-  MM_HINT_T1*:  int32 = 2
-  MM_HINT_T2*:  int32 = 1
+  MM_HINT_T0*: int32 = 3
+  MM_HINT_T1*: int32 = 2
+  MM_HINT_T2*: int32 = 1
   MM_HINT_NTA*: int32 = 0
   MM_HINT_ET0*: int32 = 7
   MM_HINT_ET1*: int32 = 6
 
-func mm_malloc*(   size, align: int ) :pointer {.importc: "_mm_malloc"  .}
-func mm_sfence*()                              {.importc: "_mm_sfence"  .}
-func mm_free*(     p :pointer )                {.importc: "_mm_free"    .}
-func mm_prefetch*( p :pointer, i :int32)       {.importc: "_mm_prefetch".}
+func mm_malloc*(size, align: int) :pointer {.importc: "_mm_malloc".}
+func mm_sfence*() {.importc: "_mm_sfence".}
+func mm_free*(p: pointer) {.importc: "_mm_free".}
+func mm_prefetch*(p: pointer, i :int32) {.importc: "_mm_prefetch".}
 
 {.pop.}
 
