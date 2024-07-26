@@ -10,7 +10,6 @@ template MM_SHUFFLE*(z, y, x, w: int | uint): int32 =
 
 {.push header: "immintrin.h".}
 
-
 const
   MM_HINT_T0*: int32 = 3
   MM_HINT_T1*: int32 = 2
@@ -19,10 +18,10 @@ const
   MM_HINT_ET0*: int32 = 7
   MM_HINT_ET1*: int32 = 6
 
-func mm_malloc*(size, align: int) :pointer {.importc: "_mm_malloc".}
+func mm_malloc*(size, align: int): pointer {.importc: "_mm_malloc".}
 func mm_sfence*() {.importc: "_mm_sfence".}
 func mm_free*(p: pointer) {.importc: "_mm_free".}
-func mm_prefetch*(p: pointer, i :int32) {.importc: "_mm_prefetch".}
+func mm_prefetch*(p: pointer, i: int32) {.importc: "_mm_prefetch".}
 
 {.pop.}
 
@@ -168,7 +167,7 @@ func mm_set_ps*(a, b, c, d: float32): M128 {.importc: "_mm_set_ps".}
 
 func mm_set_ps1*(a: float32): M128 {.importc: "_mm_set_ps1".}
 
-func mm_set_ss*(a,: float32): M128 {.importc: "_mm_set_ss".}
+func mm_set_ss*(a: float32): M128 {.importc: "_mm_set_ss".}
 
 func mm_set1_ps*(a: float32): M128 {.importc: "_mm_set1_ps".}
 
@@ -496,7 +495,7 @@ func mm_set_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_set_epi32"
 
 func mm_set_epi64x*(a, b: int64): M128i {.importc: "_mm_set_epi64x".}
 
-func mm_set_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: int8 | uint8): M128i {.importc: "_mm_set_epi8".}
+func mm_set_epi8*(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: int8 | uint8): M128i {.importc: "_mm_set_epi8".}
 
 func mm_set_pd*(a, b: float64): M128d {.importc: "_mm_set_pd".}
 
@@ -518,7 +517,7 @@ func mm_setr_epi16*(a, b, c, d, e, f, g, h: int16): M128i {.importc: "_mm_setr_e
 
 func mm_setr_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_setr_epi32".}
 
-func mm_setr_epi8*( a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8): M128i {.importc: "_mm_setr_epi8".}
+func mm_setr_epi8*(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: uint8): M128i {.importc: "_mm_setr_epi8".}
 
 func mm_setr_pd*(a, b: float64): M128d {.importc: "_mm_setr_pd".}
 

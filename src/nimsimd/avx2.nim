@@ -60,7 +60,7 @@ func mm_broadcastb_epi8*(a: M128i): M128i {.importc: "_mm_broadcastb_epi8".}
 
 func mm_broadcastsd_pd*(a: M128d): M128d {.importc: "_mm_broadcastsd_pd".}
 
-func mm_broadcastss_ps*(a: M128 ): M128 {.importc: "_mm_broadcastss_ps".}
+func mm_broadcastss_ps*(a: M128): M128 {.importc: "_mm_broadcastss_ps".}
 
 func mm_broadcastsi128_si256*(a: M128i): M256i {.importc: "_mm_broadcastsi128_si256".}
 
