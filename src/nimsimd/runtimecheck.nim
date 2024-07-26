@@ -13,9 +13,9 @@ when defined(amd64):
       SHA
       AES
       CMPXCHG16B # Atomic CompareExchange 16-byte, avail. since Haswell
-      F16C       # needs test
-      BM1        # ŴIP
-      BM2        # WIP
+      F16C
+      BM1
+      BM2
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
@@ -64,17 +64,3 @@ when defined(amd64):
       else:
         if (leaf7[checkInfo.register] and (1 shl checkInfo.bit)) == 0:
           return false
-
-  proc queryCacheLineSize*(): uint8 =
-    #
-    # CLFLUSH line size
-    #
-    # The size of this CPUs Cacheline sits in bits 7..15
-    # of leaf-1 in the EAX-register. This value times 8
-    # represents the capacity in bytes.
-    # For my WhiskeyLake-i5 it reports eight, so 8 x 8 = 64.
-    # Some more confirmation thru testing would be nice..
-    
-    let eax = cpuid(1, 0)
-
-    result = 8 * (eax[1] shr 8).uint8
