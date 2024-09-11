@@ -57,7 +57,7 @@ func mm256_castps_si256*(a: M256): M256i {.importc: "_mm256_castps_si256".}
 
 func mm256_castps128_ps256*(a: M128): M256 {.importc: "_mm256_castps128_ps256".}
 
-func mm256_castps256_ps128*(a: M256): M256 {.importc: "_mm256_castps256_ps128".}
+func mm256_castps256_ps128*(a: M256): M128 {.importc: "_mm256_castps256_ps128".}
 
 func mm256_castsi128_si256*(a: M128i): M256i {.importc: "_mm256_castsi128_si256".}
 
