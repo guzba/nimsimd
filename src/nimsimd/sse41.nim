@@ -86,11 +86,11 @@ func mm_floor_sd*(a, b: M128d): M128d {.importc: "_mm_floor_sd".}
 
 func mm_floor_ss*(a, b: M128): M128 {.importc: "_mm_floor_ss".}
 
-func mm_insert_epi32*(a: M128i, i, imm8: int32 | uint32) {.importc: "_mm_insert_epi32".}
+func mm_insert_epi32*(a: M128i, i, imm8: int32 | uint32): M128i {.importc: "_mm_insert_epi32".}
 
-func mm_insert_epi64*(a: M128i, i: int64 | uint64, imm8: int32 | uint32) {.importc: "_mm_insert_epi64".}
+func mm_insert_epi64*(a: M128i, i: int64 | uint64, imm8: int32 | uint32): M128i {.importc: "_mm_insert_epi64".}
 
-func mm_insert_epi8*(a: M128i, i, imm8: int32 | uint32) {.importc: "_mm_insert_epi8".}
+func mm_insert_epi8*(a: M128i, i, imm8: int32 | uint32): M128i {.importc: "_mm_insert_epi8".}
 
 func mm_insert_ps*(a, b: M128, imm8: int32 | uint32): M128 {.importc: "_mm_insert_ps".}
 

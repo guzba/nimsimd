@@ -25,6 +25,9 @@ BMI1      | ✅
 BMI2      | ✅
 F16C      | ✅
 MOVBE     | ✅
+MOVBE     | ✅
+POPCNT    | ✅
+
 ### Compiler flags
 
 Some instruction sets require additional compiler flags to compile. I suggest
