@@ -493,7 +493,7 @@ func mm_set_epi16*(a, b, c, d, e, f, g, h: int16): M128i {.importc: "_mm_set_epi
 
 func mm_set_epi32*(a, b, c, d: int32 | uint32): M128i {.importc: "_mm_set_epi32".}
 
-func mm_set_epi64x*(a, b: int64): M128i {.importc: "_mm_set_epi64x".}
+func mm_set_epi64x*(a, b: int64 | uint64): M128i {.importc: "_mm_set_epi64x".}
 
 func mm_set_epi8*(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p: int8 | uint8): M128i {.importc: "_mm_set_epi8".}
 
@@ -664,5 +664,7 @@ func mm_unpacklo_pd*(a, b: M128d): M128d {.importc: "_mm_unpacklo_pd".}
 func mm_xor_pd*(a, b: M128d): M128d {.importc: "_mm_xor_pd".}
 
 func mm_xor_si128*(a, b: M128i): M128i {.importc: "_mm_xor_si128".}
+
+func mm_storel_pi*(p: pointer, a: M128) {.importc: "_mm_storel_pi".}
 
 {.pop.}
