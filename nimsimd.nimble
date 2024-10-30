@@ -1,4 +1,4 @@
-version     = "1.2.13"
+version     = "1.3.0"
 author      = "Ryan Oldenburg"
 description = "Pleasant Nim bindings for SIMD instruction sets."
 license     = "MIT"

@@ -429,6 +429,8 @@ func mm_loadl_epi64*(p: pointer): M128i {.importc: "_mm_loadl_epi64".}
 
 func mm_loadl_pd*(a: M128d, p: pointer): M128i {.importc: "_mm_loadl_pd".}
 
+func mm_loadl_pi*(a: M128, p: pointer): M128 {.importc: "_mm_loadl_pi".}
+
 func mm_loadr_pd*(p: pointer): M128d {.importc: "_mm_loadr_pd".}
 
 func mm_loadu_pd*(p: pointer): M128d {.importc: "_mm_loadu_pd".}
