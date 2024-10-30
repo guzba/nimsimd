@@ -27,6 +27,7 @@ F16C      | ✅
 MOVBE     | ✅
 MOVBE     | ✅
 POPCNT    | ✅
+FMA       | ✅
 
 ### Compiler flags
 
