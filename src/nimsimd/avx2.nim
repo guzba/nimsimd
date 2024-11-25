@@ -164,11 +164,17 @@ func mm256_madd_epi16*(a, b: M256i): M256i {.importc: "_mm256_madd_epi16".}
 
 func mm256_maddubs_epi16*(a, b: M256i): M256i {.importc: "_mm256_maddubs_epi16".}
 
-func mm256_maskload_epi32*(p: pointer, mask: M256i): M256i {.importc: "_mm256_maskload_epi32".}
+func mm256_maskload_epi32(p: ptr int32, mask: M256i): M256i {.importc: "_mm256_maskload_epi32".}
+
+template mm256_maskload_epi32*(p: pointer, mask: M256i): M256i =
+  mm256_maskload_epi32(cast[ptr int32](p), mask)
 
 func mm256_maskload_epi64*(p: pointer, mask: M256i): M256i {.importc: "_mm256_maskload_epi64".}
 
-func mm256_maskstore_epi32*(p: pointer, mask, a: M256i) {.importc: "_mm256_maskstore_epi32".}
+func mm256_maskstore_epi32(p: ptr int32, mask, a: M256i) {.importc: "_mm256_maskstore_epi32".}
+
+template mm256_maskstore_epi32*(p: pointer, mask, a: M256i) =
+  mm256_maskstore_epi32(cast[ptr int32](p), mask, a)
 
 func mm256_maskstore_epi64*(p: pointer, mask, a: M256i) {.importc: "_mm256_maskstore_epi64".}
 

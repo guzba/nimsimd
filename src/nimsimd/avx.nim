@@ -3,9 +3,9 @@ import sse42
 export sse42
 
 type
-  M256* {.importc: "__m256", header: "immintrin.h".} = object
-  M256i* {.importc: "__m256i", header: "immintrin.h".} = object
-  M256d* {.importc: "__m256d", header: "immintrin.h".} = object
+  M256* {.importc: "__m256", header: "immintrin.h", bycopy.} = object
+  M256i* {.importc: "__m256i", header: "immintrin.h", bycopy.} = object
+  M256d* {.importc: "__m256d", header: "immintrin.h", bycopy.} = object
 
 {.push header: "immintrin.h".}
 
@@ -157,9 +157,15 @@ func mm256_load_si256*(p: pointer): M256i {.importc: "_mm256_load_si256".}
 
 func mm256_loadu_pd*(p: pointer): M256d {.importc: "_mm256_loadu_pd".}
 
-func mm256_loadu_ps*(p: pointer): M256 {.importc: "_mm256_loadu_ps".}
+func mm256_loadu_ps(p: ptr float32): M256 {.importc: "_mm256_loadu_ps".}
 
-func mm256_loadu_si256*(p: pointer): M256i {.importc: "_mm256_loadu_si256".}
+template mm256_loadu_ps*(p: pointer): M256 =
+  mm256_loadu_ps(cast[ptr float32](p))
+
+func mm256_loadu_si256(p: ptr M256i): M256i {.importc: "_mm256_loadu_si256".}
+
+template mm256_loadu_si256*(p: pointer): M256i =
+  mm256_loadu_si256(cast[ptr M256i](p))
 
 func mm256_loadu2_m128*(hi, lo: pointer): M256 {.importc: "_mm256_loadu2_m128".}
 
@@ -309,9 +315,15 @@ func mm256_store_si256*(p: pointer, a: M256i) {.importc: "_mm256_store_si256".}
 
 func mm256_storeu_pd*(p: pointer, a: M256d) {.importc: "_mm256_storeu_pd".}
 
-func mm256_storeu_ps*(p: pointer, a: M256) {.importc: "_mm256_storeu_ps".}
+func mm256_storeu_ps(p: ptr float32, a: M256) {.importc: "_mm256_storeu_ps".}
 
-func mm256_storeu_si256*(p: pointer, a: M256i) {.importc: "_mm256_storeu_si256".}
+template mm256_storeu_ps*(p: pointer, a: M256) =
+  mm256_storeu_ps(cast[ptr float32](p), a)
+
+func mm256_storeu_si256(p: ptr M256i, a: M256i) {.importc: "_mm256_storeu_si256".}
+
+template mm256_storeu_si256*(p: pointer, a: M256i) =
+  mm256_storeu_si256(cast[ptr M256i](p), a)
 
 func mm256_storeu2_m128*(hi, lo: pointer) {.importc: "_mm256_storeu2_m128".}
 
