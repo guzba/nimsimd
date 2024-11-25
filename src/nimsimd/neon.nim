@@ -187,6 +187,10 @@ func vld1q_lane_u16*(p: pointer, v: uint16x8, lane: int32): uint16x8
 func vld1q_lane_u32*(p: pointer, v: uint32x4, lane: int32): uint32x4
 func vld1q_lane_u64*(p: pointer, v: uint64x2, lane: int32): uint64x2
 
+func vld1_lane_u32*(p: pointer, v: uint32x2, lane: int32): uint32x2
+func vld1_lane_u16*(p: pointer, v: uint16x4, lane: int32): uint16x4
+func vld1_lane_u8*(p: pointer, v: uint8x8, lane: int32): uint8x8
+
 func vld1q_dup_f64*(p: pointer): float64x2
 
 func vst1q_s32*(p: pointer, v: int32x4)
@@ -201,8 +205,11 @@ func vst1_u8*(p: pointer, v: uint8x8)
 func vst1_u16*(p: pointer, v: uint16x4)
 func vst1_u32*(p: pointer, v: uint32x2)
 func vst1_u64*(p: pointer, v: uint64x1)
-
 func vst1_f32*(p: pointer, v: float32x2)
+
+func vst1_lane_u32*(p: pointer, v: uint32x2, lane: int32)
+func vst1_lane_u16*(p: pointer, v: uint16x4, lane: int32)
+func vst1_lane_u8*(p: pointer, v: uint8x8, lane: int32)
 
 func vst2_u8*(p: pointer, v: uint8x8x2)
 func vst2_u16*(p: pointer, v: uint16x4x2)
@@ -451,6 +458,10 @@ func vreinterpretq_s32_u8*(a: uint8x16): int32x4
 func vreinterpretq_s32_u32*(a: uint32x4): int32x4
 func vreinterpretq_u16_u8*(a: uint8x16): uint16x8
 
+func vreinterpret_u32_u8*(a: uint8x8): uint32x2
+func vreinterpret_u8_u16*(a: uint16x4): uint8x8
+func vreinterpret_u16_u8*(a: uint8x8): uint16x4
+func vreinterpret_u8_u32*(a: uint32x2): uint8x8
 func vreinterpret_u64_u8*(a: uint8x8): uint64x1
 func vreinterpret_s32_u32*(a: uint32x2): int32x2
 func vreinterpret_f32_u64*(a: uint64x1): float32x2
