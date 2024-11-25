@@ -1,9 +1,9 @@
 ## SSE and SSE2 intrinsics
 
 type
-  M128* {.importc: "__m128", header: "xmmintrin.h".} = object
-  M128i* {.importc: "__m128i", header: "emmintrin.h".} = object
-  M128d* {.importc: "__m128d", header: "emmintrin.h".} = object
+  M128* {.importc: "__m128", header: "xmmintrin.h", bycopy.} = object
+  M128i* {.importc: "__m128i", header: "emmintrin.h", bycopy.} = object
+  M128d* {.importc: "__m128d", header: "emmintrin.h", bycopy.} = object
 
 template MM_SHUFFLE*(z, y, x, w: int | uint): int32 =
   ((z shl 6) or (y shl 4) or (x shl 2) or w).int32
@@ -191,7 +191,10 @@ func mm_store1_ps*(p: pointer, a: M128) {.importc: "_mm_store1_ps".}
 
 func mm_storer_ps*(p: pointer, a: M128) {.importc: "_mm_storer_ps".}
 
-func mm_storeu_ps*(p: pointer, a: M128) {.importc: "_mm_storeu_ps".}
+func mm_storeu_ps(p: ptr float32, a: M128) {.importc: "_mm_storeu_ps".}
+
+template mm_storeu_ps*(p: pointer, a: M128) =
+  mm_storeu_ps(cast[ptr float32](p), a)
 
 func mm_storeu_si16*(p: pointer, a: M128) {.importc: "_mm_storeu_si16".}
 
@@ -419,13 +422,19 @@ func mm_load_pd1*(p: pointer): M128d {.importc: "_mm_load_pd1".}
 
 func mm_load_sd*(p: pointer): M128d {.importc: "_mm_load_sd".}
 
-func mm_load_si128*(p: pointer): M128i {.importc: "_mm_load_si128".}
+func mm_load_si128(p: ptr M128i): M128i {.importc: "_mm_load_si128".}
+
+template mm_load_si128*(p: pointer): M128i =
+  mm_load_si128(cast[ptr M128i](p))
 
 func mm_load1_pd*(p: pointer): M128d {.importc: "_mm_load1_pd".}
 
 func mm_loadh_pd*(a: M128d, p: pointer): M128d {.importc: "_mm_loadh_pd".}
 
-func mm_loadl_epi64*(p: pointer): M128i {.importc: "_mm_loadl_epi64".}
+func mm_loadl_epi64(p: ptr M128i): M128i {.importc: "_mm_loadl_epi64".}
+
+template mm_loadl_epi64*(p: pointer): M128i =
+  mm_loadl_epi64(cast[ptr M128i](p))
 
 func mm_loadl_pd*(a: M128d, p: pointer): M128i {.importc: "_mm_loadl_pd".}
 
@@ -435,7 +444,10 @@ func mm_loadr_pd*(p: pointer): M128d {.importc: "_mm_loadr_pd".}
 
 func mm_loadu_pd*(p: pointer): M128d {.importc: "_mm_loadu_pd".}
 
-func mm_loadu_si128*(p: pointer): M128i {.importc: "_mm_loadu_si128".}
+func mm_loadu_si128(p: ptr M128i): M128i {.importc: "_mm_loadu_si128".}
+
+template mm_loadu_si128*(p: pointer): M128i =
+  mm_loadu_si128(cast[ptr M128i](p))
 
 func mm_loadu_si32*(p: pointer): M128i {.importc: "_mm_loadu_si32".}
 
@@ -595,7 +607,10 @@ func mm_storer_pd*(p: pointer, a: M128d) {.importc: "_mm_storer_pd".}
 
 func mm_storeu_pd*(p: pointer, a: M128d) {.importc: "_mm_storeu_pd".}
 
-func mm_storeu_si128*(p: pointer, a: M128i) {.importc: "_mm_storeu_si128".}
+func mm_storeu_si128(p: ptr M128i, a: M128i) {.importc: "_mm_storeu_si128".}
+
+template mm_storeu_si128*(p: pointer, a: M128i) =
+  mm_storeu_si128(cast[ptr M128i](p), a)
 
 func mm_storeu_si32*(p: pointer, a: M128i) {.importc: "_mm_storeu_si32".}
 

@@ -12,10 +12,10 @@ when defined(amd64):
       PCLMULQDQ
       SHA
       AES
-      CMPXCHG16B # Atomic CompareExchange 16-byte, avail. since Haswell
+      CMPXCHG16B
       F16C
-      BM1
-      BM2
+      BMI1
+      BMI2
 
     InstructionSetCheckInfo = object
       leaf, register, bit: int
