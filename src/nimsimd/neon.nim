@@ -403,6 +403,9 @@ func vextq_f64*(a, b: float64x2, n: int): float64x2
 
 func vminvq_u32*(a: uint32x4): uint32
 func vminvq_f32*(a: float32x4): float32
+func vminvq_u8*(a: uint8x16): uint8
+
+func vminv_u8*(a: uint8x8): uint8
 
 func vmaxq_u8*(a, b: uint8x16): uint8x16
 
@@ -475,4 +478,7 @@ func uint32x4_immediate*(v3, v2, v1, v0: static uint32): uint32x4 {.inline.} =
   {.emit: [result, " = (uint32x4_t){", v0, ",", v1, ",", v2, ",", v3, "};"].}
 
 func uint8x16_immediate*(v15, v14, v13, v12, v11, v10, v9, v8, v7, v6, v5, v4, v3, v2, v1, v0: static uint8): uint8x16 {.inline.} =
-  {.emit: [result, " = (uint8x16_t){", v0, ",", v1, ",", v2, ",", v3, ",", v4, ",", v5, ",", v6, ",", v7, ",", v8, ",", v9, ",", v10, ",", v11, ",", v12, ",", v13, ",", v14, ",", v15, "};"].}
+  {.emit: [result, " = (uint8x8_t){", v0, ",", v1, ",", v2, ",", v3, ",", v4, ",", v5, ",", v6, ",", v7, ",", v8, ",", v9, ",", v10, ",", v11, ",", v12, ",", v13, ",", v14, ",", v15, "};"].}
+
+func uint8x8_immediate*(v7, v6, v5, v4, v3, v2, v1, v0: static uint8): uint8x8 {.inline.} =
+  {.emit: [result, " = (uint8x8_t){", v0, ",", v1, ",", v2, ",", v3, ",", v4, ",", v5, ",", v6, ",", v7, "};"].}
