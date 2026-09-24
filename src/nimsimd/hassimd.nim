@@ -1,6 +1,14 @@
-import std/macros, std/tables
+import std/macros
 
-var simdProcs* {.compileTime.}: Table[string, NimNode]
+when (NimMajor, NimMinor) >= (2, 0):
+  # A macrocache table, not a `{.compileTime.}` global: `{.simd.}` fills it in
+  # one module and `{.hasSimd.}` reads it in another, which compile-time globals
+  # do not support under incremental compilation (`nim ic`).
+  import std/macrocache
+  const simdProcs* = CacheTable"nimsimd.simdProcs"
+else:
+  import std/tables
+  var simdProcs* {.compileTime.}: Table[string, NimNode]
 
 proc procName(procedure: NimNode): string =
   ## Given a procedure this returns the name as a string.
@@ -57,7 +65,8 @@ proc callAndReturn(name: NimNode, procedure: NimNode): NimNode =
 
 macro simd*(procedure: untyped) =
   let signature = procedure.procName() & procSignature(procedure)
-  simdProcs[signature] = procedure.copy()
+  if signature notin simdProcs:
+    simdProcs[signature] = procedure.copy()
   return procedure
 
 macro hasSimd*(procedure: untyped) =
