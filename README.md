@@ -20,14 +20,27 @@ SSE4.1    | ✅
 SSE4.2    | ✅
 AVX       | ✅
 AVX2      | ✅
+AVX-512   | ✅
 PCLMULQDQ | ✅
 BMI1      | ✅
 BMI2      | ✅
 F16C      | ✅
 MOVBE     | ✅
-MOVBE     | ✅
 POPCNT    | ✅
 FMA       | ✅
+
+### AVX-512
+
+AVX-512 extensions are organized by processor generation for convenience:
+
+Module | Target Processors | Extensions
+------ | ----------------- | ----------
+`avx512` | Skylake-SP/X | F, CD, VL, DQ, BW
+`avx512cnl` | Cannon Lake | + IFMA, VBMI
+`avx512icl` | Ice Lake, Tiger Lake, Rocket Lake | + VBMI2, VPOPCNTDQ, BITALG, VNNI, VPCLMULQDQ, GFNI, VAES
+`avx512zen4` | AMD Zen 4/5, Intel Sapphire Rapids | + BF16
+
+Individual extensions are also available under `avx512/` (e.g., `avx512/f`, `avx512/bw`, `avx512/vnni`).
 
 ### Compiler flags
 
